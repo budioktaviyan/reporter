@@ -1,7 +1,13 @@
+import com.google.firebase.crashlytics.buildtools.gradle.CrashlyticsPlugin
+import com.google.gms.googleservices.GoogleServicesPlugin
+
 plugins {
   id("com.android.application")
   kotlin("android")
 }
+
+plugins.apply(GoogleServicesPlugin::class.java)
+plugins.apply(CrashlyticsPlugin::class.java)
 
 android {
   compileSdkVersion(29)
@@ -46,10 +52,3 @@ dependencies {
   implementation("com.google.firebase:firebase-crashlytics:17.1.1")
   implementation("com.google.firebase:firebase-analytics:17.4.4")
 }
-
-apply(
-    mapOf(
-        "plugin" to "com.google.gms.google-services",
-        "plugin" to "com.google.firebase.crashlytics"
-    )
-)
