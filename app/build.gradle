@@ -12,8 +12,18 @@ android {
     versionCode 1
     versionName "1.0.0"
   }
+  signingConfigs {
+    release {
+      storeFile = file('keystore.jks')
+      storePassword = 'bhnk123'
+      keyAlias = 'bhnk'
+      keyPassword = 'bhnk123'
+      v2SigningEnabled true
+    }
+  }
   buildTypes {
     release {
+      signingConfig signingConfigs.release
       minifyEnabled true
       zipAlignEnabled true
       shrinkResources true
